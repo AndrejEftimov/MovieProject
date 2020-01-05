@@ -1,0 +1,84 @@
+<section id="showcase"><!--INTRO AND MOVIE IMAGES-->
+    <div class="container">
+        <h1 id="intro">CinemaStage - The best movie experience.</h1>
+        <img src="../assets/starwars.jpg" alt="starwars">
+        <img src="../assets/jumanji.jpg" alt="jumanji">
+        <img src="../assets/aladdin.jpg" alt="aladdin">
+    </div>
+</section>
+
+<nav class="nav"><!--NAVIGATION-->
+    <div class="container">
+        <ul>
+            <li (click)="setShowtimes()">SHOWTIMES</li>
+            <li (click)="setNews()">NEWS</li>
+            <li (click)="setAbout()">ABOUT US</li>
+        </ul>
+    </div>
+</nav>
+
+
+<!--   SECTIONS:   -->
+<!--Showtimes-->
+<div class="container" *ngIf="showtimes_flag">
+    <app-movie *ngFor="let m of movies" [movie]="m">
+    </app-movie>
+</div>
+
+<!--News-->
+<div class="container" *ngIf="news_flag">
+
+    <!--newsletter-->
+    <section id="newsletter">
+		<div class="container">
+			<h2>Subscribe to our newsletter</h2>
+			<form class="form">
+				<input type="email" name="email" placeholder="Enter email...">
+				<button type="button" class="button">Subscribe</button>
+			</form>
+		</div>
+	</section>
+
+
+    <app-news *ngFor="let n of newsList" [news]="n">
+    </app-news>
+</div>
+
+<!--About-->
+<div class="container" *ngIf="about_flag">
+    <div id="about-wrapper">
+        <section id="about">
+            <br>
+            <h1>WHO ARE WE?</h1>
+            <br>
+            <hr>
+            <br>
+            <p>Founded in 1995, CinemaStage has since been the most desired place in the region 
+                to watch the latest and most thrilling movie releases. 
+                We will stop at nothing to deliver <span class="highlight">ONLY THE BEST</span> imaginable 
+                experience for your eyes and ears. Our large and evergrowing following of moviegoers 
+                is by itself a testament to the quality we guarantee. We incorporate the most 
+                modern of sound systems and screening technology. Coupled with the complete sound 
+                isolation and virtually zero noise pollution, our facilities offer nothing short 
+                of cinema <span class="highlight">PERFECTION.</span>
+            </p>
+            <br>
+            <hr>
+            <br>
+            <h3>CONTACT US:</h3>
+            <br>
+            <ul>
+                <li><a href="#">E-mail | CinemaStageMOVIES@gmail.com</a></li>
+                <li><a href="#">Phone | 07? ??? ???</a></li>
+                <li><a href="#">Facebook | CinemaStageOriginal</a></li>
+                <li><a href="#">Instagram | @Cinema_Stage</a></li>
+                <li><a href="#">Address | 6189 Openroad street </a></li>
+            </ul>
+
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p>CinemaStage Movies, Copyright &copy; 2020</p>
+</footer>

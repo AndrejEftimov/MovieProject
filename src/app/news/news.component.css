@@ -1,0 +1,30 @@
+.news-wrapper{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.image{
+    cursor: pointer;
+}
+
+.text{
+    text-align: center;
+    padding: 5px;
+    line-height: 1.5;
+}
+
+.text p{
+    color: darkgrey;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.clickForMore{
+    font-style: italic;
+    font-weight: bold;
+    color: lightsteelblue;
+    cursor: pointer;
+}

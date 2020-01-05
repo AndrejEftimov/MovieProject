@@ -1,0 +1,6 @@
+<div class="movie-wrapper">
+    <img [src]="movie.imageUrl" [alt]="movie.title">
+    <h3> {{ movie.title }} </h3>
+    <p> {{ movie.releaseDate }} </p>
+    <button (click)="openDialog()">Read more</button>
+</div>

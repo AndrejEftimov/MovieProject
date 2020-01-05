@@ -1,0 +1,35 @@
+@keyframes slideIn{ /*slideIn transition*/
+    0% {
+        transform: translateX(-400%);
+    }
+
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+.movie-wrapper{
+    display: inline-block;
+    margin-left: 223px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    text-align: center;
+    animation-name: slideIn;
+    animation-duration: 1s;
+}
+
+.movie-wrapper img{
+    width: 250px;
+    border: #e8491d 1px solid;
+}
+
+button{
+    background: #e8491d;
+	color: white;
+	height: 35px;
+	border: 0;
+	padding-left: 18px;
+    padding-right: 18px;
+    float: right;
+    margin-top: 10px;
+}
