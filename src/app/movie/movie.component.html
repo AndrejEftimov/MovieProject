@@ -1,6 +1,6 @@
-<div class="movie-wrapper">
-    <img [src]="movie.imageUrl" [alt]="movie.title">
+<div class="movie-wrapper" [class.textDark]="dark_flag" [class.textWhite]="white_flag">
+    <img [src]="movie.imageUrl" [alt]="movie.title" [class.imgDark]="dark_flag" [class.imgWhite]="white_flag">
     <h3> {{ movie.title }} </h3>
     <p> {{ movie.releaseDate }} </p>
-    <button (click)="openDialog()">Read more</button>
+    <button (click)="openDialog()" [class.buttonDark]="dark_flag" [class.buttonWhite]="white_flag">Read more</button>
 </div>

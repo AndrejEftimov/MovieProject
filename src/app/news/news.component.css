@@ -1,9 +1,23 @@
+@keyframes slideInNews{ /*slideIn animation*/
+    0% {
+        transform: translateX(12%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+
 .news-wrapper{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    padding-bottom: 60px;
+    width: 80%;
     height: 100%;
+    animation-name: slideInNews;
+    animation-duration: 0.5s;
 }
 
 .image{
@@ -17,7 +31,7 @@
 }
 
 .text p{
-    color: darkgrey;
+    color: #707070;
     padding-left: 150px;
     padding-right: 150px;
 }

@@ -17,7 +17,7 @@ export class NewsComponent implements OnInit {
 
   desc_flag: boolean = false;
 
-  changeFlag(){
+  changeDescFlag(){
     if(this.desc_flag === false)
       this.desc_flag = true;
       

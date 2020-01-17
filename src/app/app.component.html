@@ -1,52 +1,60 @@
+<!--THEME SELECTION-->
+<p id="theme-para">CHOOSE THEME</p>
+<div id="themes">
+    <button (click)="setDarkBlue()" type="button" id="dark-blue-button">DARK/BLUE</button>
+    <button (click)="setWhiteRed()" type="button" id="white-red-button">WHITE/RED</button>
+</div>
+
 <section id="showcase"><!--INTRO AND MOVIE IMAGES-->
-    <div class="container">
-        <h1 id="intro">CinemaStage - The best movie experience.</h1>
-        <img src="../assets/starwars.jpg" alt="starwars">
-        <img src="../assets/jumanji.jpg" alt="jumanji">
-        <img src="../assets/aladdin.jpg" alt="aladdin">
+    <div style="width: 90%; margin: auto;">
+        <h1 [class.h1Dark]="dark_flag" [class.h1White]="white_flag"><span style="font-style: italic; font-family: Verdana, Geneva, Tahoma, sans-serif;">CinemaStage -</span> The best movie experience.</h1>
+        <img [class.imgDark]="dark_flag" [class.imgWhite]="white_flag" src="../assets/starwars.jpg" alt="starwars">
+        <img [class.imgDark]="dark_flag" [class.imgWhite]="white_flag" src="../assets/jumanji.jpg" alt="jumanji">
+        <img [class.imgDark]="dark_flag" [class.imgWhite]="white_flag" src="../assets/aladdin.jpg" alt="aladdin">
     </div>
 </section>
 
-<nav class="nav"><!--NAVIGATION-->
+<nav class="nav" [class.navDark]="dark_flag" [class.navWhite]="white_flag"><!--NAVIGATION-->
     <div class="container">
         <ul>
-            <li (click)="setShowtimes()">SHOWTIMES</li>
-            <li (click)="setNews()">NEWS</li>
-            <li (click)="setAbout()">ABOUT US</li>
+            <button [class.navDarkButton]="dark_flag" [class.navWhiteButton]="white_flag" (click)="setShowtimes()">SHOWTIMES</button>
+            <button [class.navDarkButton]="dark_flag" [class.navWhiteButton]="white_flag" (click)="setNews()">NEWS</button>
+            <button [class.navDarkButton]="dark_flag" [class.navWhiteButton]="white_flag" (click)="setAbout()">ABOUT US</button>
         </ul>
     </div>
 </nav>
 
 
-<!--   SECTIONS:   -->
-<!--Showtimes-->
-<div class="container" *ngIf="showtimes_flag">
-    <app-movie *ngFor="let m of movies" [movie]="m">
-    </app-movie>
-</div>
+<!-- SECTIONS: -->
+<div [ngSwitch]="section">
 
-<!--News-->
-<div class="container" *ngIf="news_flag">
+    <!--Showtimes-->
+    <div class="showtimes" *ngSwitchCase="0" [class.darkBackground]="dark_flag" [class.whiteBackground]="white_flag">
+        <app-movie *ngFor="let m of movies" [movie]="m" [dark_flag]="dark_flag" [white_flag]="white_flag">
+        </app-movie>
+    </div>
 
-    <!--newsletter-->
-    <section id="newsletter">
-		<div class="container">
-			<h2>Subscribe to our newsletter</h2>
-			<form class="form">
-				<input type="email" name="email" placeholder="Enter email...">
-				<button type="button" class="button">Subscribe</button>
-			</form>
-		</div>
-	</section>
+    <!--News-->
+    <div *ngSwitchCase="1" [class.newsDark]="dark_flag" [class.newsWhite]="white_flag">
+
+        <!--newsletter-->
+        <section id="newsletter" [class.newsletterDark]="dark_flag" [class.newsletterWhite]="white_flag">
+		    <div class="container">
+			    <h2>Subscribe to our newsletter</h2>
+			    <form class="form">
+				    <input type="email" name="email" placeholder=" Enter email">
+				    <button type="button" class="newsletterButton" [class.newsletterBtnDark]="dark_flag" [class.newsletterBtnWhite]="white_flag">Subscribe</button>
+			    </form>
+		    </div>
+	    </section>
 
 
-    <app-news *ngFor="let n of newsList" [news]="n">
-    </app-news>
-</div>
+        <app-news *ngFor="let n of newsList" [news]="n">
+        </app-news>
+    </div>
 
-<!--About-->
-<div class="container" *ngIf="about_flag">
-    <div id="about-wrapper">
+    <!--About-->
+    <div id="about-wrapper" *ngSwitchCase="2">
         <section id="about">
             <br>
             <h1>WHO ARE WE?</h1>
@@ -55,17 +63,19 @@
             <br>
             <p>Founded in 1995, CinemaStage has since been the most desired place in the region 
                 to watch the latest and most thrilling movie releases. 
-                We will stop at nothing to deliver <span class="highlight">ONLY THE BEST</span> imaginable 
-                experience for your eyes and ears. Our large and evergrowing following of moviegoers 
+                We will stop at nothing to deliver <span class="highlight" [class.highlightDark]="dark_flag" 
+                [class.highlightWhite]="white_flag">ONLY THE BEST</span> imaginable experience 
+                for your eyes and ears. Our large and evergrowing following of moviegoers 
                 is by itself a testament to the quality we guarantee. We incorporate the most 
                 modern of sound systems and screening technology. Coupled with the complete sound 
                 isolation and virtually zero noise pollution, our facilities offer nothing short 
-                of cinema <span class="highlight">PERFECTION.</span>
+                of cinema <span class="highlight" [class.highlightDark]="dark_flag" 
+                [class.highlightWhite]="white_flag">PERFECTION.</span>
             </p>
             <br>
             <hr>
             <br>
-            <h3>CONTACT US:</h3>
+            <h3>CONTACT US</h3>
             <br>
             <ul>
                 <li><a href="#">E-mail | CinemaStageMOVIES@gmail.com</a></li>
@@ -74,11 +84,10 @@
                 <li><a href="#">Instagram | @Cinema_Stage</a></li>
                 <li><a href="#">Address | 6189 Openroad street </a></li>
             </ul>
-
         </section>
     </div>
 </div>
 
-<footer>
+<footer [class.footerDark]="dark_flag" [class.footerWhite]="white_flag">
     <p>CinemaStage Movies, Copyright &copy; 2020</p>
 </footer>

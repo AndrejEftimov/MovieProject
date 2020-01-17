@@ -1,63 +1,250 @@
-* { /*GLOBAL (don't change)*/
+@keyframes slideInAbout{ /*slideIn animation*/
+    0% {
+        transform: translateY(50%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+* { /*GLOBAL*/
     margin: 0;
     padding: 0;
 }
 
-.container{ /*GLOBAL (don't change)*/
+.container{ /*GLOBAL*/
     width: 90%;
     margin: auto;
 }
 
+button:focus{ /*GLOBAL*/
+    outline: none;
+}
+
+
+
+/*THEME SPECIFIC..*/
+.h1Dark{
+    color: #0051ff;
+}
+.h1White{
+    color: #e8491d;
+}
+
+.imgDark{
+    border: #0051ff 1px solid;
+}
+.imgWhite{
+    border: #e8491d 1px solid;
+}
+
+.darkBackground{
+    background: #111111;
+}
+.whiteBackground{
+    background: white;
+}
+
+/*FOOTER*/
+.footerDark{
+    background: #0051ff;
+    color: black;
+    font-weight: bold;
+}
+.footerWhite{
+    background: #e8491d;
+    color: white;
+}
+
+/*NAV*/
+.navDark{
+    background: #111111;
+    border-top: #0051ff 2px solid;
+}
+.navWhite{
+    background: white;
+    border-top: #e8491d 2px solid;
+}
+
+.navDarkButton{
+    border-radius: 50px;
+    background: #111111;
+    color: #0051ff;
+    border: #0051ff 2px solid;
+}
+.navDarkButton:hover{
+    color: #5188ff;
+    border: #5188ff 2px solid;
+}
+.navWhiteButton{
+    border-radius: 50px;
+    background: white;
+    color: #e8491d;
+    border: #e8491d 2px solid;
+}
+.navWhiteButton:hover{
+    color: #a10000;
+    border: #a10000 2px solid;
+}
+
+.newsDark{
+    background: #111111;
+    color: white;
+}
+.newsWhite{
+    background: white;
+}
+
+.newsletterDark{
+    background: #161616;
+    color: #0051ff;
+    border-bottom: #0051ff 2px solid;
+    border-top: #0051ff 2px solid;
+}
+.newsletterDark input[type="email"]{
+    border: #0051ff 2px solid;
+    background: #111111;
+    color: darkgrey;
+}
+.newsletterWhite{
+    background: white;
+    color: #e8491d;
+    border-bottom: #e8491d 2px solid;
+    border-top: #e8491d 2px solid;
+}
+.newsletterWhite input[type="email"]{
+    border: #e8491d 2px solid;
+    color: #111111;
+}
+
+.newsletterBtnDark{
+    background: #0051ff;
+    font-weight: bold;
+}
+.newsletterBtnDark:hover{
+    background: #0042d1;
+}
+.newsletterBtnWhite{
+    background: #e8491d;
+    color: white;
+}
+.newsletterBtnWhite:hover{
+    background: #a10000;
+}
+
+.highlightDark{
+    color: #0051ff;
+}
+.highlightWhite{
+    color: #e8491d;
+}
+/*..THEME SPECIFIC*/
+
+
+
+#theme-para{
+    position: absolute;
+    left: 70px;
+    top: 15px;
+    color: darkgray;
+    font-style: italic;
+}
+
+#themes{
+    position: fixed;
+    left: 15px;
+    top: 50px;
+}
+
+#dark-blue-button{ /*Theme button*/
+    cursor: pointer;
+    height: 37px;
+    width: 120px;
+    margin: 2px;
+    border-radius: 20px;
+    background: black;
+    color: #0051ff;
+    border: #0051ff 2px solid;
+}
+#dark-blue-button:hover{
+    color: #5188ff;
+    border: #5188ff 2px solid;
+}
+
+#white-red-button{ /*Theme button*/
+    cursor: pointer;
+    height: 37px;
+    width: 120px;
+    margin: 2px;
+    border-radius: 20px;
+    background: white;
+    color: #e8491d;
+    border: #e8491d 2px solid;
+}
+#white-red-button:hover{
+    color: #a10000;
+    border: #a10000 2px solid;
+}
+
 #showcase{
     text-align: center;
-    background-color: black;
+    background: url(../assets/popcorn.jpg);
 }
 
 #showcase h1{
     padding-top: 20px;
     padding-bottom: 25px;
-    color: white;
+    font-size: 28px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #showcase img{
     width: 20%;
     margin: 5px;
     margin-bottom: 70px;
-    border: white 1px solid;
 }
 
 .nav{
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .nav ul{
     display: inline-table;
 }
 
-.nav li{
+.nav button{
     display: inline;
+    width: 300px;
 	padding: 25px;
     margin: 10px;
     cursor: pointer;
+    font-size: 16px;
+}
+
+/*SHOWTIMES*/
+.showtimes{
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 138px;
 }
 
 /*NEWSLETTER*/
 #newsletter {
-	background-color: #35424a;
-	color: white;
     padding: 15px;
     margin-bottom: 50px;
 }
 
 #newsletter h2{
     display: inline-block;
+    margin-left: 150px;
 }
 
 #newsletter .form{
     display: inline-block;
-    margin-left: 800px;
+    margin-left: 750px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -65,17 +252,24 @@
 #newsletter input[type="email"]{
 	padding: 4px;
 	height: 25px;
-	width: 250px;
+    width: 250px;
+    border-radius: 15px;
+}
+#newsletter input[type="email"]:focus{
+    outline: none;
 }
 
-/*BUTTON*/
-.button{
-	background: #e8491d;
-	color: white;
+.newsletterButton{
 	height: 37px;
 	border: 0;
 	padding-left: 20px;
     padding-right: 20px;
+    border-radius: 100px;
+    transition-duration: 0.05s;
+}
+.newsletterButton:hover{
+    cursor: pointer;
+    transform: translateY(-3%);
 }
 
 
@@ -83,30 +277,45 @@
 #about-wrapper{
     padding-top: 100px;
     padding-bottom: 100px;
-    padding-right: 300px;
-    padding-left: 300px;
-    background-color: lightgray;
+    padding-right: 500px;
+    padding-left: 500px;
+    background: url(../assets/aboutBackground.jpg) no-repeat;
+    background-size: cover;
 }
 
 #about{
+    box-sizing: border-box;
+    padding: 60px;
     height: 800px;
     width: 100%;
     background-color: black;
-    opacity: 0.9; /*transparency*/
-    box-shadow: 12px 12px 5px grey;
-    border-radius: 25px;
+    opacity: 0.85; /*transparency*/
+    border-radius: 100px;
     color: white;
     text-align: center;
     font-size: 20px;
+    line-height: 1.5;
+    animation-name: slideInAbout;
+    animation-duration: 0.5s;
 }
 
 .highlight{
-    color: #e8491d;
     font-weight: bold;
-    line-height: 1.5;
+}
+
+#about ul{
+    list-style-type: none;
+}
+
+#about a{
+    text-decoration: none;
+    color: white;
+}
+#about a:hover{
+    color: teal;
 }
 
 footer{
     text-align: center;
-    padding: 20px;
+    padding: 30px;
 }

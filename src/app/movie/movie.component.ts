@@ -18,6 +18,10 @@ export class MovieComponent implements OnInit {
 
   @Input() movie: Movie;
 
+  @Input() dark_flag: boolean = true;
+  @Input() white_flag: boolean = false;
+
+
   openDialog(): void {
     const dialogRef = this.dialog.open(MovieDetailsComponent, {
       width: '250px',

@@ -12,30 +12,36 @@ import { NEWS } from '../news-data';
 
 export class AppComponent {
 
-  showtimes_flag: boolean = true;
-  news_flag: boolean = false;
-  about_flag: boolean = false;
+  section: number = 0; // 0 - Showtimes, 1 - News, 2 - About
+
+  dark_flag: boolean = true;
+  white_flag: boolean = false;
 
   movies: Movie[] = MOVIES;
 
   newsList: News[] = NEWS;
 
   setShowtimes(){
-    this.showtimes_flag = true;
-    this.news_flag = false;
-    this.about_flag = false;
+    this.section = 0;
   }
 
   setNews(){
-    this.showtimes_flag = false;
-    this.news_flag = true;
-    this.about_flag = false;
+    this.section = 1;
   }
 
   setAbout(){
-    this.showtimes_flag = false;
-    this.news_flag = false;
-    this.about_flag = true;
+    this.section = 2;
+  }
+
+
+  setDarkBlue(){
+    this.dark_flag = true;
+    this.white_flag = false;
+  }
+
+  setWhiteRed(){
+    this.dark_flag = false;
+    this.white_flag = true;
   }
 
 }

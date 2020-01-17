@@ -1,6 +1,6 @@
-@keyframes slideIn{ /*slideIn transition*/
+@keyframes slideInMovie{ /*slideIn animation*/
     0% {
-        transform: translateX(-400%);
+        transform: translateX(-100%);
     }
 
     100%{
@@ -8,23 +8,55 @@
     }
 }
 
+
+/*THEME SPECIFIC..*/
+.imgDark{
+    border: #0051ff 1px solid;
+    box-shadow: 3px 1px 5px skyblue;
+}
+.imgWhite{
+    border: #e8491d 1px solid;
+    box-shadow: 10px 5px 5px grey;
+}
+
+.buttonDark{
+    background: #0051ff;
+    box-shadow: 3px 1px 5px skyblue;
+    border-radius: 2px;
+    transition-duration: 0.1s;
+}   .buttonDark:hover{ background: #006eff; transform: translateY(-5%);}
+.buttonWhite{
+    background: #e8491d;
+    box-shadow: 10px 5px 5px grey;
+    border-radius: 2px;
+    transition-duration: 0.1s;
+}   .buttonWhite:hover{ background: #a12600; transform: translateY(-5%);}
+
+.textDark{
+    color: white;
+}
+.textWhite{
+    color: black;
+}
+/*..THEME SPECIFIC*/
+
+
 .movie-wrapper{
     display: inline-block;
-    margin-left: 223px;
+    margin-right: 100px;
+    margin-left: 100px;
     margin-top: 70px;
     margin-bottom: 70px;
     text-align: center;
-    animation-name: slideIn;
-    animation-duration: 1s;
+    animation-name: slideInMovie;
+    animation-duration: 0.6s;
 }
 
 .movie-wrapper img{
     width: 250px;
-    border: #e8491d 1px solid;
 }
 
 button{
-    background: #e8491d;
 	color: white;
 	height: 35px;
 	border: 0;
@@ -32,4 +64,8 @@ button{
     padding-right: 18px;
     float: right;
     margin-top: 10px;
+    cursor: pointer;
+}
+button:active{
+    outline: none;
 }
