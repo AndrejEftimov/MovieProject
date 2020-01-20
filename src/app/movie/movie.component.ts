@@ -1,7 +1,5 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Movie } from '../models/movie';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 
 @Component({
   selector: 'app-movie',
@@ -10,7 +8,7 @@ import { MovieDetailsComponent } from '../movie-details/movie-details.component'
 })
 export class MovieComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {
+  constructor() {
   }
 
   ngOnInit() {
@@ -21,16 +19,10 @@ export class MovieComponent implements OnInit {
   @Input() dark_flag: boolean = true;
   @Input() white_flag: boolean = false;
 
+  @Output() readmeEvent = new EventEmitter();
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(MovieDetailsComponent, {
-      width: '250px',
-      data: {}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  setPopup(){
+    this.readmeEvent.emit(this.movie);
   }
 
 }

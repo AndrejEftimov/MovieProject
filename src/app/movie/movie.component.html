@@ -2,5 +2,7 @@
     <img [src]="movie.imageUrl" [alt]="movie.title" [class.imgDark]="dark_flag" [class.imgWhite]="white_flag">
     <h3> {{ movie.title }} </h3>
     <p> {{ movie.releaseDate }} </p>
-    <button (click)="openDialog()" [class.buttonDark]="dark_flag" [class.buttonWhite]="white_flag">Read more</button>
+    <div class="button-wrapper">
+        <button (click)="setPopup()" [class.buttonDark]="dark_flag" [class.buttonWhite]="white_flag">Read more</button>
+    </div>
 </div>

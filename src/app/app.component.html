@@ -1,5 +1,5 @@
 <!--THEME SELECTION-->
-<p id="theme-para">CHOOSE THEME</p>
+<p id="choose-theme">CHOOSE THEME</p>
 <div id="themes">
     <button (click)="setDarkBlue()" type="button" id="dark-blue-button">DARK/BLUE</button>
     <button (click)="setWhiteRed()" type="button" id="white-red-button">WHITE/RED</button>
@@ -7,7 +7,9 @@
 
 <section id="showcase"><!--INTRO AND MOVIE IMAGES-->
     <div style="width: 90%; margin: auto;">
-        <h1 [class.h1Dark]="dark_flag" [class.h1White]="white_flag"><span style="font-style: italic; font-family: Verdana, Geneva, Tahoma, sans-serif;">CinemaStage -</span> The best movie experience.</h1>
+        <h1 [class.h1Dark]="dark_flag" [class.h1White]="white_flag">
+            <span style="font-style: italic; font-family: Verdana, Geneva, Tahoma, sans-serif;">CinemaStage -</span> 
+            The best movie experience.</h1>
         <img [class.imgDark]="dark_flag" [class.imgWhite]="white_flag" src="../assets/starwars.jpg" alt="starwars">
         <img [class.imgDark]="dark_flag" [class.imgWhite]="white_flag" src="../assets/jumanji.jpg" alt="jumanji">
         <img [class.imgDark]="dark_flag" [class.imgWhite]="white_flag" src="../assets/aladdin.jpg" alt="aladdin">
@@ -17,7 +19,7 @@
 <nav class="nav" [class.navDark]="dark_flag" [class.navWhite]="white_flag"><!--NAVIGATION-->
     <div class="container">
         <ul>
-            <button [class.navDarkButton]="dark_flag" [class.navWhiteButton]="white_flag" (click)="setShowtimes()">SHOWTIMES</button>
+            <button [class.navDarkButton]="dark_flag" [class.navWhiteButton]="white_flag" (click)="setShowtimes()">MOVIES</button>
             <button [class.navDarkButton]="dark_flag" [class.navWhiteButton]="white_flag" (click)="setNews()">NEWS</button>
             <button [class.navDarkButton]="dark_flag" [class.navWhiteButton]="white_flag" (click)="setAbout()">ABOUT US</button>
         </ul>
@@ -28,11 +30,13 @@
 <!-- SECTIONS: -->
 <div [ngSwitch]="section">
 
+
     <!--Showtimes-->
     <div class="showtimes" *ngSwitchCase="0" [class.darkBackground]="dark_flag" [class.whiteBackground]="white_flag">
-        <app-movie *ngFor="let m of movies" [movie]="m" [dark_flag]="dark_flag" [white_flag]="white_flag">
+        <app-movie *ngFor="let m of movies" [movie]="m" [dark_flag]="dark_flag" [white_flag]="white_flag" (readmeEvent)="setPopup($event)">
         </app-movie>
     </div>
+
 
     <!--News-->
     <div *ngSwitchCase="1" [class.newsDark]="dark_flag" [class.newsWhite]="white_flag">
@@ -43,7 +47,8 @@
 			    <h2>Subscribe to our newsletter</h2>
 			    <form class="form">
 				    <input type="email" name="email" placeholder=" Enter email">
-				    <button type="button" class="newsletterButton" [class.newsletterBtnDark]="dark_flag" [class.newsletterBtnWhite]="white_flag">Subscribe</button>
+                    <button type="button" class="newsletterButton" [class.newsletterBtnDark]="dark_flag" 
+                    [class.newsletterBtnWhite]="white_flag">Subscribe</button>
 			    </form>
 		    </div>
 	    </section>
@@ -52,6 +57,7 @@
         <app-news *ngFor="let n of newsList" [news]="n">
         </app-news>
     </div>
+
 
     <!--About-->
     <div id="about-wrapper" *ngSwitchCase="2">
@@ -88,6 +94,43 @@
     </div>
 </div>
 
+
 <footer [class.footerDark]="dark_flag" [class.footerWhite]="white_flag">
     <p>CinemaStage Movies, Copyright &copy; 2020</p>
 </footer>
+
+
+<!--POPUP MODAL-->
+<div class="modal-wrapper" *ngIf="popup_flag">
+    <div class="modal-content" [class.modal-content-dark]="dark_flag" [class.modal-content-white]="white_flag">
+
+        <div class="x" (click)="popup_flag = false" [class.x-dark]="dark_flag" [class.x-white]="white_flag">+</div>
+        <!--{{ currentMovie.title }}-->
+        <h1 [class.h1-dark]="dark_flag" [class.h1-white]="white_flag">Star Wars: The Rise of Skywalker</h1>
+            <!--[src]="currentMovie.trailerUrl | safe"-->
+        <iframe src="https://www.youtube-nocookie.com/embed/8Qn_spdM5Zg" [class.iframe-white]="white_flag"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <div class="details_and_rating">
+            <div class="details">
+                <p>|&emsp;Action, Adventure, Fantasy&emsp;|&emsp;20.12.2019&emsp;|&emsp;2h 22min&emsp;|</p> <!--|&emsp;{{ currentGenres }}&emsp;|&emsp;{{ currentMovie.releaseDate }}&emsp;|&emsp;{{currentMovie.duration}}&emsp;|-->
+                <hr [class.hr-dark]="dark_flag" [class.hr-white]="white_flag">
+                <p>The surviving members of the resistance face the First Order once again, and the legendary conflict between the Jedi and the Sith reaches its peak bringing the Skywalker saga to its end.</p> <!--{{ currentMovie.description }}-->
+            </div>
+            
+            <div class="rating">
+                <div class="dummy-div"></div>
+                <p>Rating:&ensp;{{ currentMovie.averageRating }}<span class="out-of-10"> /10</span></p>
+                <div class="rating-stars">
+                    <span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(10)">&#9734;</span><span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(9)">&#9734;</span>
+                    <span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(8)">&#9734;</span><span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(7)">&#9734;</span>
+                    <span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(6)">&#9734;</span><span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(5)">&#9734;</span>
+                    <span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(4)">&#9734;</span><span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(3)">&#9734;</span>
+                    <span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(2)">&#9734;</span><span class="star" [class.stardark]="dark_flag" [class.starwhite]="white_flag" (click)="updateRating(1)">&#9734;</span>
+                </div>
+                <div id="rate-it">Rate it !</div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,10 +1,12 @@
 @keyframes slideInMovie{ /*slideIn animation*/
     0% {
         transform: translateX(-100%);
+        opacity: 0.2;
     }
 
     100%{
         transform: translateX(0%);
+        opacity: 1;
     }
 }
 
@@ -43,17 +45,21 @@
 
 .movie-wrapper{
     display: inline-block;
-    margin-right: 100px;
-    margin-left: 100px;
+    width: 24%;
     margin-top: 70px;
     margin-bottom: 70px;
     text-align: center;
     animation-name: slideInMovie;
     animation-duration: 0.6s;
+    user-select: none;
 }
 
 .movie-wrapper img{
     width: 250px;
+}
+
+.button-wrapper{
+    width: 78%;
 }
 
 button{
@@ -66,6 +72,6 @@ button{
     margin-top: 10px;
     cursor: pointer;
 }
-button:active{
+button:focus{
     outline: none;
 }
