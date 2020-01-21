@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
   dark_flag: boolean = true;
   white_flag: boolean = false;
   popup_flag: boolean = false;
-  thank_you_flag: boolean = true; /*display rating-msg-popup*/
+  thank_you_flag: boolean = false; /*display rating-msg-popup*/
 
   movies: Movie[];
 
