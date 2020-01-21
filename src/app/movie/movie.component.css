@@ -45,7 +45,7 @@
 
 .movie-wrapper{
     display: inline-block;
-    width: 24%;
+    width: 30%;
     margin-top: 70px;
     margin-bottom: 70px;
     text-align: center;
@@ -59,7 +59,7 @@
 }
 
 .button-wrapper{
-    width: 78%;
+    width: 75%;
 }
 
 button{
