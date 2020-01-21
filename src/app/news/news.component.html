@@ -1,13 +1,14 @@
-<div class="news-wrapper" (click)="changeDescFlag()">
+<div class="news-wrapper">
     
     <!--IMAGE (as background)-->
-    <div class="image" [ngStyle]="{'background': 'url(' +news.imageUrl+ ') no-repeat center', 'height': '400px', 'width': '100%'}"></div>
+    <div class="image" [ngStyle]="{'background': 'url(' +news.imageUrl+ ') no-repeat center', 'height': '400px', 'width': '100%'}"
+    (click)="changeDescFlag()"></div>
 
     <div class="text"><!--TEXT-->
         <h2> {{ news.title }} </h2>
 
-        <p *ngIf="!desc_flag"> {{ news.shortDesc }} <a><span class="clickForMore">Click for more</span></a> </p> <!--SHORT DESCRIPTION-->
-        <p *ngIf="desc_flag"> {{ news.longDesc }} <a><span class="clickForMore">Click for less</span></a> </p>   <!--LONG DESCRIPTION-->
+        <p *ngIf="!desc_flag"> {{ news.shortDesc }} <a><span class="clickForMore" (click)="changeDescFlag()">Click for more</span></a> </p> <!--SHORT DESCRIPTION-->
+        <p *ngIf="desc_flag"> {{ news.longDesc }} <a><span class="clickForMore" (click)="changeDescFlag()">Click for less</span></a> </p>   <!--LONG DESCRIPTION-->
 
     </div>
 
