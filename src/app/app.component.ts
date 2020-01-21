@@ -24,7 +24,7 @@ export class SafePipe implements PipeTransform {
 
 export class AppComponent implements OnInit {
 
-  section: number = 1; // 0 - Showtimes(Movies), 1 - News, 2 - About
+  section: number = 0; // 0 - Showtimes(Movies), 1 - News, 2 - About
 
   dark_flag: boolean = true;
   white_flag: boolean = false;
