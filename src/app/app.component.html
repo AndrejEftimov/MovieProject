@@ -100,7 +100,7 @@
 </footer>
 
 
-<!--POPUP MODAL-->
+<!--POPUP MODAL (Read more)-->
 <div class="modal-wrapper" *ngIf="popup_flag">
     <div class="modal-content" [class.modal-content-dark]="dark_flag" [class.modal-content-white]="white_flag">
 
@@ -132,5 +132,14 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+
+<!--POPUP MODAL (thank you message)-->
+<div class="thank-you-wrapper" *ngIf="thank_you_flag">
+    <div class="thank-you">
+        <div class="x" (click)="thank_you_flag = false" [class.x-dark]="dark_flag" [class.x-white]="white_flag">+</div>
+        <p>Thank you for contributing!</p>
     </div>
 </div>

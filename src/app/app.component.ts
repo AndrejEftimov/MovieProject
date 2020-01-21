@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   dark_flag: boolean = true;
   white_flag: boolean = false;
   popup_flag: boolean = false;
+  thank_you_flag: boolean = true; /*display rating-msg-popup*/
 
   movies: Movie[];
 
@@ -52,17 +53,20 @@ export class AppComponent implements OnInit {
   }
 
   updateRating(num: number){
-    let l: number = this.currentMovie.ratings.length;
-    this.currentMovie.ratings[l] = num;
+    
+      let l: number = this.currentMovie.ratings.length;
+      this.currentMovie.ratings[l] = num;
 
-    let total: number = 0;
-    for(let i=0; i<l+1; i++){
-      total += this.currentMovie.ratings[i];
-    }
+      let total: number = 0;
+      for(let i=0; i<l+1; i++){
+        total += this.currentMovie.ratings[i];
+      }
 
-    this.currentMovie.averageRating = this.round(total / (l+1), 1).toFixed(1);
+      this.currentMovie.averageRating = this.round(total / (l+1), 1).toFixed(1);
 
-    this.updateMovie(this.currentMovie);
+      this.updateMovie(this.currentMovie);
+
+      this.thank_you_flag = true;
   }
 
   setShowtimes(){

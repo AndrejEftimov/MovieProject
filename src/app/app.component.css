@@ -514,3 +514,38 @@ iframe{
     color: #ff3700;
     font-weight: bold;
 }
+/*..MODAL POPUP THEME SPECIFIC*/
+
+
+.thank-you-wrapper{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thank-you{
+    width: 25%;
+    height: 25%;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    animation-name: slideInPopup;
+    animation-duration: 0.5s;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thank-you p{
+    width: 80%;
+    font-family: 'Verdana', 'Arial', 'Roboto', 'Times New Roman';
+    font-style: italic;
+    user-select: none;
+}
